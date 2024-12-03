@@ -1,0 +1,245 @@
+:root {
+  --calories-color: #ff6b00;
+  --calories-color-dark: #d03100;
+  --steps-color: #7bd51d;
+  --steps-color-dark: #10ad12;
+  --water-color: #03bed5;
+  --water-color-dark: #2244dc;
+  --sleep-color: #2d27a8;
+  --sleep-color-dark: #ac4fcf;
+  --hover-scale: 1.05;
+  --transition-duration: 0.2s;
+  --box-shadow-opacity: 0.3;
+  --background-color: #fafafa;
+}
+
+p {
+  margin: 0px;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+header {
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  border: none;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.card i {
+  font-size: 60px;
+}
+
+.card-clickable {
+  cursor: pointer;
+  transition: all var(--transition-duration) ease;
+}
+
+.card-clickable[data-tab="calories"]:hover {
+  border-color: var(--calories-color);
+  color: var(--calories-color-dark);
+  box-shadow: 0 0 15px rgba(255, 107, 0, var(--box-shadow-opacity));
+}
+
+.card-clickable[data-tab="calories"].active {
+  border-color: var(--calories-color);
+  color: white;
+  background: linear-gradient(
+    30deg,
+    var(--calories-color-dark) 0%,
+    var(--calories-color) 100%
+  );
+  box-shadow: 0 0 15px rgba(255, 107, 0, var(--box-shadow-opacity));
+}
+
+.card-clickable[data-tab="steps"]:hover {
+  border-color: var(--steps-color);
+  color: var(--steps-color-dark);
+  box-shadow: 0 0 15px var(--steps-color);
+}
+
+.card-clickable[data-tab="steps"].active {
+  border-color: var(--steps-color);
+  color: white;
+  background: linear-gradient(
+    30deg,
+    var(--steps-color-dark) 0%,
+    var(--steps-color) 100%
+  );
+  box-shadow: 0 0 15px var(--steps-color);
+}
+
+.card-clickable[data-tab="water"]:hover {
+  border-color: var(--water-color-dark);
+  color: var(--water-color-dark);
+  box-shadow: 0 0 15px var(--water-color-dark);
+}
+
+.card-clickable[data-tab="water"].active {
+  border-color: var(--water-color);
+  color: white;
+  background: linear-gradient(
+    30deg,
+    var(--water-color-dark) 0%,
+    var(--water-color) 100%
+  );
+  box-shadow: 0 0 15px var(--water-color);
+}
+
+.card-clickable[data-tab="sleep"]:hover {
+  border-color: var(--sleep-color);
+  color: var(--sleep-color);
+  box-shadow: 0 0 15px var(--sleep-color);
+}
+
+.card-clickable[data-tab="sleep"].active {
+  border-color: var(--sleep-color);
+  color: white;
+  background: linear-gradient(
+    30deg,
+    var(--sleep-color-dark) 0%,
+    var(--sleep-color) 100%
+  );
+  box-shadow: 0 0 15px var(--sleep-color);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.left-content {
+  width: 65%;
+  margin-right: 20px;
+}
+
+.content-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+
+.content-header-info p {
+  font-weight: bold;
+}
+
+.content-header-info h3 {
+  font-weight: bolder;
+}
+
+.graph-image {
+  width: 100%;
+}
+
+.right-content {
+  display: flex;
+  flex: row;
+  justify-content: space-between;
+  width: 35%;
+  background-color: white;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.button-group button {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid var(--calories-color);
+  color: gray;
+}
+
+.button-group button i {
+  font-size: 36px;
+}
+
+.button-group button:hover {
+  border: 1px solid var(--calories-color-dark);
+  color: var(--calories-color-dark);
+}
+
+.button-group button.active {
+  border: 1px solid var(--calories-color-dark);
+  color: white;
+  background: linear-gradient(
+    30deg,
+    var(--calories-color-dark) 0%,
+    var(--calories-color) 100%
+  );
+}
+
+.right-content img {
+  width: 100%;
+}
+
+.sleep-quantity-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.sleep-quantity-container h4 {
+  color: var(--sleep-color);
+  font-weight: bold;
+  margin: 0px;
+}
+
+.water-intake {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid rgb(213, 213, 213);
+  color: rgb(128, 128, 128);
+}
+
+.water-intake:hover {
+  border: 1px solid var(--water-color-dark);
+  color: var(--water-color-dark);
+}
+
+.water-intake.active {
+  border: 1px solid var(--water-color-dark);
+  background: linear-gradient(
+    30deg,
+    var(--water-color-dark) 0%,
+    var(--water-color) 100%
+  );
+  color: white;
+}
+
+.col {
+  padding: 0px;
+}

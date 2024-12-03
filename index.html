@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Tracker</title>
+    <script
+      src="https://kit.fontawesome.com/649ed7e58b.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <header class="py-3">
+        <div class="container d-flex flex-row align-items-center gap-2">
+          <img
+            src="https://blazor.syncfusion.com/showcase/wasm/health-tracker/css/images/Healthstat.png"
+          />
+          <h1 class="h5 mb-0">Health Tracker</h1>
+        </div>
+        <div
+          class="container d-flex flex-row align-items-center gap-2 justify-content-end"
+        >
+          <h1 class="h5 mb-0 text-end">Hi, Budi Dari Binus</h1>
+          <img
+            src="/images/profilePicture.jpg"
+          width="80 px"/>
+        </div>
+      </header>
+
+      <main class="my-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-lg-3 mb-4">
+              <div
+                id="calories-nav"
+                class="card h-100 card-clickable"
+                data-tab="calories"
+              >
+                <div class="card-body">
+                  <div>
+                    <h5 class="card-title">Calories Eaten</h5>
+                    <p class="card-text h1" id="calories-eaten">13,100</p>
+                  </div>
+                  <i class="fa-solid fa-utensils"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+              <div
+                id="steps-nav"
+                class="card h-100 card-clickable"
+                data-tab="steps"
+              >
+                <div class="card-body">
+                  <div>
+                    <h5 class="card-title">Steps Taken</h5>
+                    <p class="card-text h1" id="steps-taken">52,100</p>
+                  </div>
+                  <i class="fa-solid fa-shoe-prints"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+              <div
+                id="water-nav"
+                class="card h-100 card-clickable"
+                data-tab="water"
+              >
+                <div class="card-body">
+                  <div>
+                    <h5 class="card-title">Water Consumed</h5>
+                    <p class="card-text h1" id="water-consumed">38.7 ltr</p>
+                  </div>
+                  <i class="fa-solid fa-glass-water"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+              <div
+                id="sleep-nav"
+                class="card h-100 card-clickable"
+                data-tab="sleep"
+              >
+                <div class="card-body">
+                  <div>
+                    <h5 class="card-title">Sleep Duration</h5>
+                    <p class="card-text h1" id="sleep-duration">50 hr</p>
+                  </div>
+                  <i class="fa-solid fa-moon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Content Sections -->
+          <div class="row">
+            <div class="col-12">
+              <div id="calories-content" class="tab-content">
+                <div class="left-content">
+                  <div class="content-header">
+                    <h5>Calories Consumed</h5>
+                    <div class="d-flex flex-row gap-4">
+                      <div class="content-header-info">
+                        <p>Today</p>
+                        <h3>2000 Kcal</h3>
+                      </div>
+                      <div class="content-header-info">
+                        <p>Daily Average</p>
+                        <h3 style="color: var(--calories-color-dark)">
+                          2800 kcal
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                  <canvas id="calories-chart"></canvas>
+                </div>
+                <div class="right-content">
+                  <div>
+                    <h5>Macro Nutrients</h5>
+                    <img src="images/breakfast.png" />
+                  </div>
+                  <div class="button-group">
+                    <button class="macro-nutrients">
+                      <i class="fa-solid fa-egg"></i>
+                      <p>Breakfast</p>
+                    </button>
+                    <button class="macro-nutrients">
+                      <i class="fa-solid fa-utensils"></i>
+                      <p>Lunch</p>
+                    </button>
+                    <button class="macro-nutrients">
+                      <i class="fa-solid fa-bowl-food"></i>
+                      <p>Dinner</p>
+                    </button>
+                    <button class="macro-nutrients">
+                      <i class="fa-solid fa-ranking-star"></i>
+                      <p>Rank</p>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div id="steps-content" class="tab-content">
+                <div class="left-content">
+                  <div class="content-header">
+                    <h5>Steps Taken</h5>
+                    <div class="d-flex flex-row gap-4">
+                      <div class="content-header-info">
+                        <p>Distance Travelled</p>
+                        <h3 style="color: var(--steps-color-dark)">
+                          2.3 miles
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                  <img
+                    class="graph-image"
+                    src="/images/steps_taken_graph.png"
+                  />
+                </div>
+                <div class="right-content">
+                  <div>
+                    <h5>Sunday Activity</h5>
+                    <img src="images/sunday_activity.png" />
+                  </div>
+                </div>
+              </div>
+              <div id="water-content" class="tab-content">
+                <div class="left-content">
+                  <div class="content-header">
+                    <h5>Water Consumption</h5>
+                    <div class="d-flex flex-row gap-4">
+                      <div class="content-header-info">
+                        <p>Target</p>
+                        <h3 style="color: var(--water-color-dark)">7 Litres</h3>
+                      </div>
+                      <div class="content-header-info">
+                        <p>Daily Average</p>
+                        <h3 style="color: var(--water-color-dark)">
+                          4.2 Litres
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                  <img
+                    class="graph-image"
+                    src="/images/water_consumption_graph.png"
+                  />
+                </div>
+                <div class="right-content">
+                  <div class="w-100">
+                    <h5>Sunday Activity</h5>
+                    <canvas
+                      id="polarAreaChart"
+                      width="900"
+                      height="900"
+                    ></canvas>
+                    <p class="fw-bold text-center">Add Water intake value</p>
+                    <div class="water-intake-button-group row">
+                      <div class="col px-1">
+                        <button class="water-intake">
+                          <i class="fa-solid fa-bottle-water"></i>
+                          <p>50 ml</p>
+                        </button>
+                        <button class="water-intake">
+                          <i class="fa-solid fa-bottle-water"></i>
+                          <p>200 ml</p>
+                        </button>
+                      </div>
+                      <div class="col px-1">
+                        <button class="water-intake">
+                          <i class="fa-solid fa-bottle-water"></i>
+                          <p>100 ml</p>
+                        </button>
+                        <button class="water-intake">
+                          <i class="fa-solid fa-bottle-water"></i>
+                          <p>300 ml</p>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="sleep-content" class="tab-content">
+                <div class="left-content">
+                  <div class="content-header">
+                    <h5>Sleep Tracker</h5>
+                    <div class="d-flex flex-row gap-4">
+                      <div class="content-header-info">
+                        <p>Goal</p>
+                        <h3 style="color: var(--sleep-color-dark)">7.5hrs</h3>
+                      </div>
+                      <div class="content-header-info">
+                        <p>Daily Average</p>
+                        <h3 style="color: var(--sleep-color-dark)">6.32hrs</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <img
+                    class="graph-image"
+                    src="/images/sleep_tracker_graph.png"
+                  />
+                </div>
+                <div class="right-content">
+                  <div>
+                    <h5>Sleep Quantity</h5>
+                    <img src="images/sleep_quantity.png" />
+                    <div class="row">
+                      <div class="col">
+                        <div class="sleep-quantity-container border-bottom">
+                          <h4>5h 24 mins</h4>
+                          <p>Deep Sleep</p>
+                        </div>
+                        <div class="sleep-quantity-container">
+                          <h4>27 mins</h4>
+                          <p>Awake</p>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div
+                          class="sleep-quantity-container border-start border-bottom"
+                        >
+                          <h4>2h 15 mins</h4>
+                          <p>Light Sleep</p>
+                        </div>
+                        <div class="sleep-quantity-container border-start">
+                          <h4>54 mins</h4>
+                          <p>Light</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bootstrap 5 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/chart.js/dist/chart.umd.js"></script>
+    <script src="node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
