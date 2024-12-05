@@ -1,131 +1,155 @@
+// Define modal functions in global scope
+window.showForm = function(type) {
+  const recordTypeSelection = document.getElementById('recordTypeSelection');
+  const selectedForm = document.getElementById(`${type}Form`);
+  
+  if (recordTypeSelection && selectedForm) {
+      // Hide all forms first
+      document.querySelectorAll('.record-form').forEach(form => {
+          form.style.display = 'none';
+      });
+      
+      // Hide selection and show selected form
+      recordTypeSelection.style.display = 'none';
+      selectedForm.style.display = 'block';
+  }
+};
+
+window.backToSelection = function() {
+  const recordTypeSelection = document.getElementById('recordTypeSelection');
+  
+  if (recordTypeSelection) {
+      // Hide all forms
+      document.querySelectorAll('.record-form').forEach(form => {
+          form.style.display = 'none';
+      });
+      // Show selection
+      recordTypeSelection.style.display = 'block';
+  }
+};
+
+// Preserve your existing tab functionality
 document.addEventListener("DOMContentLoaded", function () {
-  // Get all clickable cards
-  const cards = document.querySelectorAll(".card-clickable");
+// Get all clickable cards
+const cards = document.querySelectorAll(".card-clickable");
 
-  // Function to show content for a specific tab
-  function showTab(tabId) {
-    document.querySelectorAll(".card-clickable").forEach((content) => {
-      content.classList.remove("active");
-    });
-
-    const selectedTab = document.getElementById(`${tabId}-nav`);
-    if (selectedTab) {
-      selectedTab.classList.add("active");
-    }
-    // Hide all tab contents
-    document.querySelectorAll(".tab-content").forEach((content) => {
-      content.classList.remove("active");
-    });
-
-    // Show selected tab content
-    const selectedContent = document.getElementById(`${tabId}-content`);
-    if (selectedContent) {
-      selectedContent.classList.add("active");
-    }
-
-    // Update URL hash
-    window.location.hash = tabId;
-  }
-
-  // Add click event to cards
-  cards.forEach((card) => {
-    card.addEventListener("click", function () {
-      const tabId = this.getAttribute("data-tab");
-      showTab(tabId);
-    });
+// Function to show content for a specific tab
+function showTab(tabId) {
+  document.querySelectorAll(".card-clickable").forEach((content) => {
+    content.classList.remove("active");
   });
 
-  function checkInitialHash() {
-    const hash = window.location.hash.substring(1);
-    if (hash) {
-      showTab(hash);
-    } else {
-      showTab("calories");
-    }
+  const selectedTab = document.getElementById(`${tabId}-nav`);
+  if (selectedTab) {
+    selectedTab.classList.add("active");
   }
-
-  // Listen for hash changes
-  window.addEventListener("hashchange", checkInitialHash);
-
-  // Check initial hash when page loads
-  checkInitialHash();
-
-  const buttons = document.querySelectorAll(".macro-nutrients");
-  const image = document.querySelector(".right-content img");
-
-  // Map button types to image paths
-  const images = {
-    breakfast: "images/breakfast.png",
-    lunch: "images/lunch.png",
-    dinner: "images/dinner.png",
-    rank: "images/rank.png",
-  };
-
-  // Add click event listeners to each button
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const mealType = button.querySelector("p").textContent.toLowerCase(); // Get the button text (e.g., "Breakfast")
-      if (images[mealType]) {
-        image.src = images[mealType]; // Update the image src
-      }
-
-      // Highlight the active button
-      buttons.forEach((btn) => btn.classList.remove("active"));
-      button.classList.add("active");
-    });
+  // Hide all tab contents
+  document.querySelectorAll(".tab-content").forEach((content) => {
+    content.classList.remove("active");
   });
 
-  const defaultButton = Array.from(buttons).find(
-    (btn) => btn.querySelector("p").textContent.toLowerCase() === "breakfast"
-  );
-  if (defaultButton) {
-    defaultButton.click(); // Trigger the click event programmatically
+  // Show selected tab content
+  const selectedContent = document.getElementById(`${tabId}-content`);
+  if (selectedContent) {
+    selectedContent.classList.add("active");
   }
 
-  const waterIntakeButtons = document.querySelectorAll(".water-intake");
+  // Update URL hash
+  window.location.hash = tabId;
+}
 
-  waterIntakeButtons.forEach((waterIntakeButton) => {
-    waterIntakeButton.addEventListener("click", () => {
-      // Highlight the active button
-      waterIntakeButtons.forEach((waterBtn) =>
-        waterBtn.classList.remove("active")
-      );
-      waterIntakeButton.classList.add("active");
-    });
+// Add click event to cards
+cards.forEach((card) => {
+  card.addEventListener("click", function () {
+    const tabId = this.getAttribute("data-tab");
+    showTab(tabId);
   });
 });
 
-const ctx = document.getElementById("calories-chart");
+function checkInitialHash() {
+  const hash = window.location.hash.substring(1);
+  if (hash) {
+    showTab(hash);
+  } else {
+    showTab("calories");
+  }
+}
 
+// Listen for hash changes
+window.addEventListener("hashchange", checkInitialHash);
+
+// Check initial hash when page loads
+checkInitialHash();
+
+// Initialize modal functionality
+initializeModals();
+
+// Your existing macro nutrients functionality
+const buttons = document.querySelectorAll(".macro-nutrients");
+const image = document.querySelector(".right-content img");
+
+// Map button types to image paths
+const images = {
+  breakfast: "images/breakfast.png",
+  lunch: "images/lunch.png",
+  dinner: "images/dinner.png",
+  rank: "images/rank.png",
+};
+
+// Add click event listeners to each button
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const mealType = button.querySelector("p").textContent.toLowerCase();
+    if (images[mealType]) {
+      image.src = images[mealType];
+    }
+
+    // Highlight the active button
+    buttons.forEach((btn) => btn.classList.remove("active"));
+    button.classList.add("active");
+  });
+});
+
+// Set default button
+const defaultButton = Array.from(buttons).find(
+  (btn) => btn.querySelector("p").textContent.toLowerCase() === "breakfast"
+);
+if (defaultButton) {
+  defaultButton.click();
+}
+
+// Initialize water intake buttons
+const waterIntakeButtons = document.querySelectorAll(".water-intake");
+waterIntakeButtons.forEach((waterIntakeButton) => {
+  waterIntakeButton.addEventListener("click", () => {
+    waterIntakeButtons.forEach((waterBtn) => waterBtn.classList.remove("active"));
+    waterIntakeButton.classList.add("active");
+  });
+});
+});
+
+// Initialize Charts
+const ctx = document.getElementById("calories-chart");
+if (ctx) {
 const data = {
-  labels: [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ],
-  datasets: [
-    {
-      label: "Calories Consumed",
-      data: [1500, 1800, 3000, 1200, 2500, 2000, 1000], // Your data points
-      borderColor: "orange",
-      backgroundColor: "rgba(255, 165, 0, 0.5)",
-      tension: 0, // Smooth curve
-      pointStyle: "circle",
-      pointRadius: 6,
-      pointHoverRadius: 8,
-    },
-  ],
+  labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+  datasets: [{
+    label: "Calories Consumed",
+    data: [1500, 1800, 3000, 1200, 2500, 2000, 1000],
+    borderColor: "orange",
+    backgroundColor: "rgba(255, 165, 0, 0.5)",
+    tension: 0,
+    pointStyle: "circle",
+    pointRadius: 6,
+    pointHoverRadius: 8,
+  }],
 };
 
 const options = {
   responsive: true,
   plugins: {
     legend: {
-      display: false, // Hides the legend
+      display: false,
     },
     annotation: {
       annotations: {
@@ -151,10 +175,8 @@ const options = {
           yMax: 2000,
           borderColor: "brown",
           borderDash: [6, 6],
-          backgroundColor: "transparent",
           label: {
             backgroundColor: "transparent",
-
             color: "brown",
             content: "Today 2000 cal",
             enabled: true,
@@ -179,103 +201,150 @@ const options = {
   },
 };
 
-const config = {
-  type: "line",
-  data: data,
-  options: options,
-};
-
 new Chart(ctx, config);
+}
 
-// Get the canvas element
-const waterCanvas = document.getElementById("polarAreaChart").getContext("2d");
-
-// Create the gradient
-const waterGradient = waterCanvas.createRadialGradient(
-  waterCanvas.canvas.width / 2, // x0: Center X of the canvas
-  waterCanvas.canvas.height / 2, // y0: Center Y of the canvas
-  0, // r0: Inner radius
-  waterCanvas.canvas.width / 2, // x1: Center X of the canvas
-  waterCanvas.canvas.height / 2, // y1: Center Y of the canvas
-  waterCanvas.canvas.width / 2 // r1: Outer radius
+// Initialize Water Chart
+const waterCanvas = document.getElementById("polarAreaChart");
+if (waterCanvas) {
+const waterCtx = waterCanvas.getContext("2d");
+const waterGradient = waterCtx.createRadialGradient(
+  waterCanvas.width / 2,
+  waterCanvas.height / 2,
+  0,
+  waterCanvas.width / 2,
+  waterCanvas.height / 2,
+  waterCanvas.width / 2
 );
 
-// Define gradient colors
-waterGradient.addColorStop(0.5, "#2244dc"); // Dark water color
-waterGradient.addColorStop(1, "rgba(34, 68, 220, 0.2)"); // Dark water color with 70% transparency
+waterGradient.addColorStop(0.5, "#2244dc");
+waterGradient.addColorStop(1, "rgba(34, 68, 220, 0.2)");
 
-// Define the data for the chart
 const waterData = {
-  labels: [
-    "12:00",
-    "15:00",
-    "18:00",
-    "21:00",
-    "00:00",
-    "03:00",
-    "06:00",
-    "09:00",
-  ],
-  datasets: [
-    {
-      label: "Water Consumption",
-      data: [0.5, 1.2, 2.5, 3.0, 2.8, 1.0, 0.7, 0.6], // Data values
-      backgroundColor: waterGradient, // Apply gradient as background color
-      borderWidth: 1,
-    },
-  ],
+  labels: ["12:00", "15:00", "18:00", "21:00", "00:00", "03:00", "06:00", "09:00"],
+  datasets: [{
+    label: "Water Consumption",
+    data: [0.5, 1.2, 2.5, 3.0, 2.8, 1.0, 0.7, 0.6],
+    backgroundColor: waterGradient,
+    borderWidth: 1,
+  }],
 };
 
-// Define the chart options
 const waterOptions = {
   responsive: true,
   plugins: {
-    legend: false, // Disable the legend
+    legend: false,
   },
   scales: {
     r: {
       angleLines: {
-        display: true, // Display angle lines
+        display: true,
       },
       pointLabels: {
-        display: true, // Display point labels
+        display: true,
       },
       ticks: {
-        stepSize: 1, // Step size for radial ticks
+        stepSize: 1,
         callback: function (value) {
-          return value + "L"; // Append "L" to tick labels
+          return value + "L";
         },
       },
     },
   },
 };
 
-// Create the chart
-new Chart(waterCanvas, {
+new Chart(waterCtx, {
   type: "polarArea",
   data: waterData,
   options: waterOptions,
 });
+}
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize tooltips
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[title]'))
-  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
-  })
-
-  // Handle page navigation
-  const pages = ['dashboard', 'profile', 'settings'];
-  pages.forEach(page => {
-    const element = document.getElementById(`${page}-page`);
-    if (element) {
-      element.style.display = 'none';
-    }
+// Modal initialization function
+function initializeModals() {
+// Initialize Add Record Modal functionality
+const addRecordModal = document.getElementById('addRecordModal');
+if (addRecordModal) {
+  // Reset form when modal is hidden
+  addRecordModal.addEventListener('hidden.bs.modal', function () {
+    backToSelection();
   });
-  
-  // Show default page
-  const defaultPage = document.getElementById('dashboard-page');
-  if (defaultPage) {
-    defaultPage.style.display = 'block';
-  }
+
+  // Initialize form-specific listeners
+  initializeFormListeners();
+}
+}
+
+// Initialize form-specific event listeners
+function initializeFormListeners() {
+// Sleep quality selectors
+document.querySelectorAll('.sleep-quality-option').forEach(option => {
+  option.addEventListener('click', () => {
+    document.querySelectorAll('.sleep-quality-option').forEach(opt => 
+      opt.classList.remove('active')
+    );
+    option.classList.add('active');
+  });
 });
+
+// Exercise type cards
+document.querySelectorAll('.exercise-type-card').forEach(card => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('.exercise-type-card').forEach(c => 
+      c.classList.remove('active')
+    );
+    card.classList.add('active');
+  });
+});
+
+// Meal time selector
+document.querySelectorAll('.meal-time-selector .btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.meal-time-selector .btn').forEach(b => 
+      b.classList.remove('active')
+    );
+    btn.classList.add('active');
+  });
+});
+
+// Water tracking
+const waterButtons = document.querySelectorAll('.quick-add-buttons .btn');
+waterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const amount = parseInt(btn.querySelector('span').textContent);
+    updateWaterProgress(amount);
+  });
+});
+
+// Sleep factors
+document.querySelectorAll('.sleep-factors .btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('btn-outline-dark');
+    btn.classList.toggle('btn-dark');
+  });
+});
+}
+
+// Water progress update function
+function updateWaterProgress(amount) {
+const waterLevel = document.querySelector('.water-level');
+const currentText = document.querySelector('.water-animation + h3');
+
+if (waterLevel && currentText) {
+  const [current, total] = currentText.textContent.split('/').map(str => 
+    parseFloat(str.trim().replace('L', ''))
+  );
+  
+  let newAmount = current + (amount / 1000);
+  if (newAmount > total) newAmount = total;
+  
+  const percentage = (newAmount / total) * 100;
+  waterLevel.style.height = `${percentage}%`;
+  currentText.textContent = `${newAmount.toFixed(1)}L / ${total}L`;
+  
+  const percentText = document.querySelector('.water-animation + h3 + p');
+  if (percentText) {
+    percentText.textContent = `${Math.round(percentage)}% of daily goal`;
+  }
+}
+}

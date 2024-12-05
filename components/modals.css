@@ -1,0 +1,123 @@
+/* General Form Styles */
+.record-form {
+    animation: slideIn 0.3s ease-out;
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateX(20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  /* Exercise Type Cards */
+  .exercise-type-card {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .exercise-type-card.active {
+    background-color: #198754;
+    color: white;
+    border-color: #198754;
+  }
+  
+  .exercise-type-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Water Animation */
+  .water-animation {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .water-level {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, #0dcaf0, #0d6efd);
+    border-radius: 0 0 0.5rem 0.5rem;
+    transition: height 0.3s ease;
+  }
+  
+  /* Sleep Quality Options */
+  .sleep-quality-option {
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+  }
+  
+  .sleep-quality-option.active {
+    background-color: #f8f9fa;
+    transform: scale(1.1);
+  }
+  
+  .sleep-quality-option i {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #6c757d;
+  }
+  
+  .sleep-quality-option.active i {
+    color: #0d6efd;
+  }
+  
+  /* Meal Time Selector */
+  .meal-time-selector .btn.active {
+    background-color: #0d6efd;
+    color: white;
+  }
+  
+  /* Quick Add Foods */
+  .quick-add-foods .btn-light:hover {
+    background-color: #e9ecef;
+  }
+  
+  /* Water Quick Add Buttons */
+  .quick-add-buttons .btn {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .quick-add-buttons .btn i {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  /* Goals Modal Styles */
+  .goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .active-goal {
+    padding: 1.5rem;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    background: #fff;
+  }
+  
+  .goal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Reports Modal Styles */
+  .quick-stats .col-md-3 {
+    transition: transform 0.2s;
+  }
+  
+  .quick-stats .col-md-3:hover {
+    transform: translateY(-5px);
+  }
