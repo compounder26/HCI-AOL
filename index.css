@@ -243,3 +243,22 @@ header {
 .col {
   padding: 0px;
 }
+
+.sticky-top {
+  z-index: 1030;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-light:hover {
+  background-color: #f8f9fa;
+}
+
+.profile-page img.rounded-circle {
+  border: 4px solid #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.settings-page .list-group-item.active {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}

@@ -256,3 +256,26 @@ new Chart(waterCanvas, {
   data: waterData,
   options: waterOptions,
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize tooltips
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[title]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+
+  // Handle page navigation
+  const pages = ['dashboard', 'profile', 'settings'];
+  pages.forEach(page => {
+    const element = document.getElementById(`${page}-page`);
+    if (element) {
+      element.style.display = 'none';
+    }
+  });
+  
+  // Show default page
+  const defaultPage = document.getElementById('dashboard-page');
+  if (defaultPage) {
+    defaultPage.style.display = 'block';
+  }
+});

@@ -1,0 +1,33 @@
+.main-header {
+  z-index: 1030;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.quick-action-btn {
+  transition: all 0.2s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quick-action-btn:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.profile-dropdown {
+  transition: all 0.2s ease;
+  padding: 8px 16px;
+}
+
+.profile-dropdown:hover {
+  background-color: #f8f9fa;
+}
+
+.profile-dropdown img {
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
