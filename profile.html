@@ -14,6 +14,7 @@
 </head>
 <body>
     <div id="header-container"></div>
+    <div id="modals-container"></div>
     <!-- Profile Page -->
 <!-- profile.html - Enhanced content -->
 <div class="profile-page container py-4" id="profile-page">
@@ -192,19 +193,47 @@
 
 <!-- Custom JavaScript -->
 <script>
-  // Load header
-  fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-          document.getElementById('header-container').innerHTML = data;
-      });
+    // Load header
+    fetch('components/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+        });
 
-  // Load footer
-  fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-          document.getElementById('footer-container').innerHTML = data;
-      });
+    // Load modals
+    fetch('components/modals.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('modals-container').innerHTML = data;
+            // Initialize modal triggers after loading
+            initializeModals();
+        });
+
+    // Load footer
+    fetch('components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        });
+
+    function initializeModals() {
+        const reportBtn = document.querySelector('[title="Reports"]');
+        const goalBtn = document.querySelector('[title="Goals"]');
+        
+        if (reportBtn) {
+            reportBtn.addEventListener('click', () => {
+                const reportsModal = new bootstrap.Modal(document.getElementById('reportsModal'));
+                reportsModal.show();
+            });
+        }
+        
+        if (goalBtn) {
+            goalBtn.addEventListener('click', () => {
+                const goalsModal = new bootstrap.Modal(document.getElementById('goalsModal'));
+                goalsModal.show();
+            });
+        }
+    }
 </script>
 <script type="module" src="script.js"></script>
 </html>
