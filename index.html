@@ -10,9 +10,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <!-- Custom CSS -->
   <link rel="stylesheet" href="index.css" />
-  <link rel="stylesheet" href="header.css" />
-  <link rel="stylesheet" href="modals.css">
-  <link rel="stylesheet" href="footer.css" />
+  <link rel="stylesheet" href="components/header.css" />
+  <link rel="stylesheet" href="components/modals.css">
+  <link rel="stylesheet" href="components/footer.css" />
 </head>
   <body>
     <div id="header-container"></div>
@@ -277,14 +277,14 @@
     <!-- Custom JavaScript -->
     <script>
       // Load header
-      fetch('components/header.html')
+      fetch('/components/header.html')
           .then(response => response.text())
           .then(data => {
               document.getElementById('header-container').innerHTML = data;
           });
   
       // Load modals
-      fetch('components/modals.html')
+      fetch('/components/modals.html')
           .then(response => response.text())
           .then(data => {
               document.getElementById('modals-container').innerHTML = data;
@@ -293,7 +293,7 @@
           });
   
       // Load footer
-      fetch('components/footer.html')
+      fetch('/components/footer.html')
           .then(response => response.text())
           .then(data => {
               document.getElementById('footer-container').innerHTML = data;
