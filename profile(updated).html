@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Tracker</title>
+    <script src="https://kit.fontawesome.com/649ed7e58b.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="profile.css" />
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="footer.css" />
+    <link rel="stylesheet" href="modals.css">
+</head>
+<body>
+    <div id="header-container"></div>
+    <div id="modals-container"></div>
+    <!-- Profile Page -->
+<!-- profile.html - Enhanced content -->
+<div class="profile-page container py-4" id="profile-page">
+    <!-- First Row: Profile and Personal Info (Existing) -->
+    <div class="row mb-4">
+      <!-- Your existing profile card and personal information sections -->
+    </div>
+  
+    <!-- Second Row: Health Statistics -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Health Overview</h5>
+            <div class="btn-group">
+              <button class="btn btn-outline-secondary btn-sm">Week</button>
+              <button class="btn btn-outline-secondary btn-sm active">Month</button>
+              <button class="btn btn-outline-secondary btn-sm">Year</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row g-4">
+              <div class="col-md-3">
+                <div class="stat-card calories">
+                  <div class="stat-icon">
+                    <i class="fa-solid fa-utensils"></i>
+                  </div>
+                  <div class="stat-info">
+                    <h6>Average Daily Calories</h6>
+                    <h3>2,134</h3>
+                    <p class="trend positive">↑ 3% vs last month</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="stat-card steps">
+                  <div class="stat-icon">
+                    <i class="fa-solid fa-shoe-prints"></i>
+                  </div>
+                  <div class="stat-info">
+                    <h6>Average Daily Steps</h6>
+                    <h3>8,742</h3>
+                    <p class="trend positive">↑ 12% vs last month</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="stat-card water">
+                  <div class="stat-icon">
+                    <i class="fa-solid fa-glass-water"></i>
+                  </div>
+                  <div class="stat-info">
+                    <h6>Water Intake</h6>
+                    <h3>2.8L</h3>
+                    <p class="trend negative">↓ 5% vs last month</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="stat-card sleep">
+                  <div class="stat-icon">
+                    <i class="fa-solid fa-moon"></i>
+                  </div>
+                  <div class="stat-info">
+                    <h6>Sleep Duration</h6>
+                    <h3>7.2hrs</h3>
+                    <p class="trend neutral">= No change</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Third Row: Achievements and Goals -->
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0">Recent Achievements</h5>
+          </div>
+          <div class="card-body">
+            <div class="achievements-list">
+              <div class="achievement-item">
+                <div class="achievement-icon gold">
+                  <i class="fa-solid fa-medal"></i>
+                </div>
+                <div class="achievement-info">
+                  <h6>30-Day Streak</h6>
+                  <p>Completed all daily goals for 30 consecutive days</p>
+                </div>
+                <span class="achievement-date">2 days ago</span>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-icon silver">
+                  <i class="fa-solid fa-person-walking"></i>
+                </div>
+                <div class="achievement-info">
+                  <h6>Step Master</h6>
+                  <p>Reached 10,000 steps goal for 7 consecutive days</p>
+                </div>
+                <span class="achievement-date">1 week ago</span>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-icon bronze">
+                  <i class="fa-solid fa-glass-water"></i>
+                </div>
+                <div class="achievement-info">
+                  <h6>Hydration Hero</h6>
+                  <p>Met daily water intake goal for 15 days</p>
+                </div>
+                <span class="achievement-date">2 weeks ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0">Current Goals</h5>
+          </div>
+          <div class="card-body">
+            <div class="goals-list">
+              <div class="goal-item">
+                <div class="goal-progress">
+                  <div class="progress">
+                    <div class="progress-bar bg-success" style="width: 75%"></div>
+                  </div>
+                  <span class="goal-percentage">75%</span>
+                </div>
+                <div class="goal-info">
+                  <h6>Weight Goal</h6>
+                  <p>Lose 5kg - 3.75kg lost so far</p>
+                </div>
+              </div>
+              <div class="goal-item">
+                <div class="goal-progress">
+                  <div class="progress">
+                    <div class="progress-bar bg-primary" style="width: 60%"></div>
+                  </div>
+                  <span class="goal-percentage">60%</span>
+                </div>
+                <div class="goal-info">
+                  <h6>Activity Goal</h6>
+                  <p>Exercise 5 times a week - 3/5 completed</p>
+                </div>
+              </div>
+              <div class="goal-item">
+                <div class="goal-progress">
+                  <div class="progress">
+                    <div class="progress-bar bg-info" style="width: 40%"></div>
+                  </div>
+                  <span class="goal-percentage">40%</span>
+                </div>
+                <div class="goal-info">
+                  <h6>Sleep Goal</h6>
+                  <p>8 hours per night - averaging 6.4 hours</p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Tambahan-->
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0">BMI & Recomendation</h5>
+          </div>
+          <div class="card-body">
+            <div class="bmircmd-list">
+              <div class="bmircmd-item">
+                  <div class="bmircmd-progress">
+                    <h6>Your BMI</h6>
+                    <div class="progress mb-2" style="position: relative;">
+                      <!-- Progress Bar -->
+                      <div class="bmi-bar-container">
+                        <div class="bmi-section underweight"></div>
+                        <div class="bmi-section normal"></div>
+                        <div class="bmi-section overweight"></div>
+                        <div class="bmi-section obese"></div>
+                        <div class="bmi-indicator"></div>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="bmircmd-info">
+                    <p>Your BMI: <strong>45</strong> (Obese)</p>
+                  </div>
+              </div>
+              <div class="bmircmd-item">
+                <div class="bmircmd-progress">
+                  
+                  <div class="card">
+                    <div class="card-header">
+                      <div class="bmircmd-item">
+                        <div class="bmircmd-progress">
+                          <h6>Personal Recommendation For You</h6>
+                            <p>For individuals with obesity, 
+                            high-impact exercises can place excessive strain on joints,
+                            especially the knees and ankles, increasing the risk of injury.
+                            Therefore, we recommend light, effective exercises that help burn calories,
+                            improve fitness, and support weight loss.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <!-- SECTION 1 -->
+                        <div class="col-md-6">
+                          <div class="section-frame">
+                            <div class="card">
+                              <div class="card-header">
+                                <h6>Exercise</h6>
+                              </div>
+                              <div class="card-body">
+                                <div class="exercise-item">
+                                  <div class="exercise-icon">
+                                    <i class="fa-solid fa-person-swimming"></i>
+                                  </div>
+                                  <div class="exercise-info">
+                                    <h6>Swimming</h6>
+                                    <p>Swimming is a low-impact exercise that engages almost all muscle groups. 
+                                      The water reduces pressure on the joints, making it safe and effective for burning calories.</p>
+                                  </div>
+                                </div>
+                                <div class="exercise-item">
+                                  <div class="exercise-icon">
+                                    <i class="fa-solid fa-person-walking"></i>
+                                  </div>
+                                  <div class="exercise-info">
+                                    <h6>Walking</h6>
+                                    <p>Walking is a simple, light exercise that can be adjusted in intensity. 
+                                      Start with short durations (10-15 minutes) and gradually increase over time.</p>
+                                  </div>
+                                </div>
+                                <div class="exercise-item">
+                                  <div class="exercise-icon">
+                                    <i class="fa-solid fa-bicycle"></i>
+                                  </div>
+                                  <div class="exercise-info">
+                                    <h6>Stationary Cycling</h6>
+                                    <p>Stationary cycling provides excellent cardiovascular benefits with minimal joint strain.
+                                       The intensity can be adjusted to suit individual capabilities.</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+              
+                        <!-- SECTION 2 -->
+                        <div class="col-md-6">
+                          <div class="section-frame">
+                            <div class="card">
+                              <div class="card-header">
+                                <h6>Lifestyle</h6>
+                              </div>
+                              <div class="card-body">
+                                <div class="lifestyle-item">
+                                  <div class="lifestyle-icon">
+                                    <i class="fa-solid fa-bed"></i>
+                                  </div>
+                                  <div class="lifestyle-info">
+                                    <h6>Proper Sleep</h6>
+                                    <p>Aim for 7-9 hours of sleep per night. Lack of sleep can increase ghrelin (hunger hormone) and decrease leptin (satiety hormone).
+                                      Avoid caffeine or heavy meals at least 2 hours before bedtime.
+                                      Maintain a consistent sleep schedule, even on weekends.</p>
+                                  </div>
+                                </div>
+                                <div class="lifestyle-item">
+                                  <div class="lifestyle-icon">
+                                    <i class="fa-solid fa-bowl-food"></i>
+                                  </div>
+                                  <div class="lifestyle-info">
+                                    <h6>Healthy Eating Habits</h6>
+                                    <p>Aim for 7-9 hours of sleep per night. Lack of sleep can increase ghrelin (hunger hormone) and decrease leptin (satiety hormone).
+                                      Avoid caffeine or heavy meals at least 2 hours before bedtime.
+                                      Maintain a consistent sleep schedule, even on weekends.</p>
+                                  </div>
+                                </div>
+                                <div class="lifestyle-item">
+                                  <div class="lifestyle-icon">
+                                    <i class="fa-solid fa-bowl-food"></i>
+                                  </div>
+                                  <div class="lifestyle-info">
+                                    <h6>Food Recommendations</h6>
+                                    <p><Strong>Oatmeal:</Strong>
+                                       High in fiber, helping you stay full longer.
+                                    </p>
+                                    <p>
+                                      <strong>Salmon:</strong>
+                                       A great source of protein and omega-3 fatty acids for heart health.
+                                    </p>
+                                    <p>
+                                      <strong>Leafy Greens:</strong>
+                                      Such as spinach, broccoli, and kale, which are low in calories but nutrient-dense.
+                                    </p>  
+                                    <p>
+                                      <strong>Low-Sugar Fruits:</strong>
+                                       Such as apples, strawberries, and oranges.
+                                    </p>
+                                    <p>
+                                      <strong>Almonds:</strong>
+                                       A healthy snack rich in good fats.</p>
+                                    </p>   
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="bmircmd-item">
+                        <div class="bmircmd-progress">
+                          <h6>Summary</h6>
+                          <p>By following these exercise and lifestyle recommendations, you can gradually lose weight,
+                             reduce health risks, and improve your overall quality of life. Always consult a doctor or 
+                             nutritionist before making significant changes to your routine.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+<div id="footer-container"></div>
+
+<!-- Bootstrap 5 JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="node_modules/chart.js/dist/chart.umd.js"></script>
+<script src="node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script>
+    // Load header
+    fetch('components/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+        });
+
+    // Load modals
+    fetch('components/modals.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('modals-container').innerHTML = data;
+            // Initialize modal triggers after loading
+            initializeModals();
+        });
+
+    // Load footer
+    fetch('components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        });
+
+    function initializeModals() {
+        const reportBtn = document.querySelector('[title="Reports"]');
+        const goalBtn = document.querySelector('[title="Goals"]');
+        
+        if (reportBtn) {
+            reportBtn.addEventListener('click', () => {
+                const reportsModal = new bootstrap.Modal(document.getElementById('reportsModal'));
+                reportsModal.show();
+            });
+        }
+        
+        if (goalBtn) {
+            goalBtn.addEventListener('click', () => {
+                const goalsModal = new bootstrap.Modal(document.getElementById('goalsModal'));
+                goalsModal.show();
+            });
+        }
+    }
+</script>
+<script type="module" src="script.js"></script>
+</html>
