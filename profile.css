@@ -176,3 +176,139 @@
     font-size: 0.875rem;
     color: #6c757d;
 }
+
+/*Tambahan Ferdi-*/
+.bmi-bar-container {
+    display: flex;
+    width: 100%;
+    height: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bmi-section {
+    height: 100%;
+  }
+
+  .underweight {
+    background-color: #3bc9db;
+    width: 18%; 
+  }
+
+  .normal {
+    background-color: #51cf66; 
+    width: 42%; 
+  }
+
+  .overweight {
+    background-color: #fd7e14; 
+    width: 25%;
+  }
+
+  .obese {
+    background-color: #ff6b6b;
+    width: 15%; 
+  }
+
+  .bmi-indicator {
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background-color: black;
+    left: 95%; 
+  }
+
+  .section-frame {
+    border: 1px solid #ddd; /* Warna border */
+    border-radius: 5px; /* Sudut membulat */
+    padding: 15px; /* Jarak konten dengan border */
+    margin-bottom: 15px; /* Jarak antar frame jika ada banyak */
+    background-color: #f9f9f9; /* Warna latar belakang opsional */
+  }
+
+  .section-frame h6 {
+    margin-bottom: 10px; /* Jarak antar judul dan konten */
+  }
+
+  .exercise-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+  .exercise-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.exercise-info {
+    flex-grow: 1;
+}
+
+.exercise-info h6 {
+    margin-bottom: 0.25rem;
+}
+
+.exercise-info p {
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.lifestyle-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+  .lifestyle-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.lifestyle-info {
+    flex-grow: 1;
+}
+
+.lifestyle-info h6 {
+    margin-bottom: 0.25rem;
+}
+
+.lifestyle-info p {
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.bmircmd-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.bmircmd-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
