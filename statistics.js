@@ -44,16 +44,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const seasonalChart = new Chart(document.getElementById('seasonalActivityChart'), {
         type: 'bar',
         data: {
-            labels: ['Spring', 'Summer', 'Fall', 'Winter'],
+            labels: ['Dry Season (Jun-Oct)', 'Early Rainy Season (Nov-Dec)', 'Peak Rainy Season (Jan-Feb)', 'Late Rainy Season (Mar-May)'],
             datasets: [{
                 label: 'Outdoor Activities',
-                data: [65, 85, 70, 40],
+                data: [85, 60, 35, 55],
                 backgroundColor: '#3498db'
             }, {
-                label: 'Indoor Workouts',
-                data: [45, 35, 50, 75],
+                label: 'Indoor Workouts', 
+                data: [40, 65, 80, 70],
                 backgroundColor: '#e74c3c'
             }]
+        },
+        options: {
+            scales: {
+                x: {
+                    ticks: {
+                        maxRotation: 45,
+                        minRotation: 45
+                    }
+                }
+            }
         }
     });
 

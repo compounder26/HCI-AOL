@@ -9,10 +9,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="statistics.css" />
-    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="components/header.css" />
+    <link rel="stylesheet" href="components/modals.css">
 </head>
 <body>
     <div id="header-container"></div>
+    <div id="modals-container"></div>
 
     <div class="container py-4">
         <!-- City Impact Analysis -->
@@ -162,7 +164,9 @@
 
     <!-- Bootstrap 5 JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/chart.js/dist/chart.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.min.js"></script>
     
     <!-- Custom JavaScript -->
     <script>
@@ -172,7 +176,17 @@
             .then(data => {
                 document.getElementById('header-container').innerHTML = data;
             });
+
+        // Load modals
+        fetch('components/modals.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('modals-container').innerHTML = data;
+                // Initialize modal triggers after loading
+                initializeModals();
+            });
     </script>
+    <script type="module" src="script.js"></script>
     <script src="statistics.js"></script>
 </body>
 </html> 
