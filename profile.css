@@ -226,21 +226,21 @@
     padding: 15px; /* Jarak konten dengan border */
     margin-bottom: 15px; /* Jarak antar frame jika ada banyak */
     background-color: #f9f9f9; /* Warna latar belakang opsional */
+    height: 100%;  /* Make the frame take full height */
   }
 
   .section-frame h6 {
     margin-bottom: 10px; /* Jarak antar judul dan konten */
   }
 
-  .exercise-item {
+  .exercise-item,
+  .lifestyle-item {
+    flex: 1;  /* Allow items to grow and fill available space */
+    margin-bottom: 1rem;  /* Add some spacing between items */
+    min-height: 120px;  /* Set minimum height for each item */
     display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
+    align-items: start;  /* Align items to the top */
+  }
 
   .exercise-icon {
     width: 40px;
@@ -252,8 +252,11 @@
     font-size: 1.25rem;
 }
 
-.exercise-info {
-    flex-grow: 1;
+.exercise-info,
+.lifestyle-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
 }
 
 .exercise-info h6 {
@@ -264,30 +267,6 @@
     margin-bottom: 0;
     font-size: 0.875rem;
     color: #6c757d;
-}
-
-.lifestyle-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-  .lifestyle-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-}
-
-.lifestyle-info {
-    flex-grow: 1;
 }
 
 .lifestyle-info h6 {
@@ -310,5 +289,11 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+}
+
+/* Make the last item's margin-bottom 0 to prevent extra space */
+.exercise-item:last-child,
+.lifestyle-item:last-child {
+    margin-bottom: 0;
 }
 
