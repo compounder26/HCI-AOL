@@ -10,7 +10,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="profile.css" />
     <link rel="stylesheet" href="header.css" />
-    <link rel="stylesheet" href="footer.css" />
     <link rel="stylesheet" href="modals.css">
 </head>
 <body>
@@ -352,7 +351,6 @@
       </div>
     </div>
 </body>
-<div id="footer-container"></div>
 
 <!-- Bootstrap 5 JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -377,31 +375,7 @@
             initializeModals();
         });
 
-    // Load footer
-    fetch('components/footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer-container').innerHTML = data;
-        });
 
-    function initializeModals() {
-        const reportBtn = document.querySelector('[title="Reports"]');
-        const goalBtn = document.querySelector('[title="Goals"]');
-        
-        if (reportBtn) {
-            reportBtn.addEventListener('click', () => {
-                const reportsModal = new bootstrap.Modal(document.getElementById('reportsModal'));
-                reportsModal.show();
-            });
-        }
-        
-        if (goalBtn) {
-            goalBtn.addEventListener('click', () => {
-                const goalsModal = new bootstrap.Modal(document.getElementById('goalsModal'));
-                goalsModal.show();
-            });
-        }
-    }
 </script>
 <script type="module" src="script.js"></script>
 </html>

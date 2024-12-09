@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Statistics - Health Tracker</title>
+    <script src="https://kit.fontawesome.com/649ed7e58b.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="statistics.css" />
+    <link rel="stylesheet" href="header.css" />
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <div class="container py-4">
+        <!-- City Impact Analysis -->
+        <section class="stats-section mb-5">
+            <h2 class="section-title">City Impact Analysis</h2>
+            <div class="row g-4">
+                <div class="col-md-8">
+                    <div class="stats-card">
+                        <h3>Life Quality Metrics by City</h3>
+                        <canvas id="cityComparisonChart"></canvas>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stats-card">
+                        <h3>Key Findings</h3>
+                        <div class="key-findings">
+                            <div class="finding-item">
+                                <i class="fas fa-walking"></i>
+                                <p>2.3x more steps in Jakarta vs Tanggerang</p>
+                            </div>
+                            <div class="finding-item">
+                                <i class="fas fa-sun"></i>
+                                <p>15% higher happiness score in Tanggerang</p>
+                            </div>
+                            <div class="finding-item">
+                                <i class="fas fa-dumbbell"></i>
+                                <p>30% more gym visits in Jakarta</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sleep Impact Analysis -->
+        <section class="stats-section mb-5">
+            <h2 class="section-title">Sleep Analysis</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="stats-card">
+                        <h3>Sleep Quality vs Daily Performance</h3>
+                        <canvas id="sleepImpactChart"></canvas>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="stats-card">
+                        <h3>Sleep Patterns</h3>
+                        <div class="sleep-stats">
+                            <div class="stat-row">
+                                <div class="stat-label">Optimal Sleep Duration</div>
+                                <div class="stat-value">7.5 hours</div>
+                            </div>
+                            <div class="stat-row">
+                                <div class="stat-label">Best Sleep Time</div>
+                                <div class="stat-value">10:30 PM</div>
+                            </div>
+                            <div class="stat-row">
+                                <div class="stat-label">Productivity Impact</div>
+                                <div class="stat-value positive">+27%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weather & Seasonal Impact -->
+        <section class="stats-section mb-5">
+            <h2 class="section-title">Weather & Seasonal Patterns</h2>
+            <div class="row g-4">
+                <div class="col-md-7">
+                    <div class="stats-card">
+                        <h3>Activity Level by Season</h3>
+                        <canvas id="seasonalActivityChart"></canvas>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="stats-card">
+                        <h3>Weather Impact</h3>
+                        <div class="weather-correlations">
+                            <div class="correlation-item">
+                                <span class="weather-icon"><i class="fas fa-sun"></i></span>
+                                <div class="correlation-info">
+                                    <h4>Sunny Days</h4>
+                                    <p>+45% outdoor activity</p>
+                                    <p>+23% social interactions</p>
+                                </div>
+                            </div>
+                            <div class="correlation-item">
+                                <span class="weather-icon"><i class="fas fa-cloud-rain"></i></span>
+                                <div class="correlation-info">
+                                    <h4>Rainy Days</h4>
+                                    <p>+30% indoor workouts</p>
+                                    <p>+15% meditation sessions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work-Life Balance -->
+        <section class="stats-section mb-5">
+            <h2 class="section-title">Work-Life Balance Analysis</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="stats-card">
+                        <h3>Screen Time Impact</h3>
+                        <canvas id="screenTimeChart"></canvas>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="stats-card">
+                        <h3>Meeting Load vs Personal Time</h3>
+                        <div class="work-life-stats">
+                            <div class="stat-item">
+                                <div class="stat-header">
+                                    <i class="fas fa-video"></i>
+                                    <span>Meeting Hours</span>
+                                </div>
+                                <div class="stat-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" style="width: 75%"></div>
+                                    </div>
+                                    <span>15.5 hrs/week</span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-header">
+                                    <i class="fas fa-laptop-code"></i>
+                                    <span>Coding Time</span>
+                                </div>
+                                <div class="stat-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-info" style="width: 60%"></div>
+                                    </div>
+                                    <span>22.3 hrs/week</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Bootstrap 5 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Load header
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            });
+    </script>
+    <script src="statistics.js"></script>
+</body>
+</html> 

@@ -112,12 +112,3 @@
     align-items: center;
     margin-bottom: 1rem;
   }
-  
-  /* Reports Modal Styles */
-  .quick-stats .col-md-3 {
-    transition: transform 0.2s;
-  }
-  
-  .quick-stats .col-md-3:hover {
-    transform: translateY(-5px);
-  }
